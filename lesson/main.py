@@ -1,14 +1,14 @@
-from flask import Flask
+from flask import Flask, render_template
 
 app = Flask(__name__)
 
 @app.route("/")
-def hello_world(password = None):
-    html = """
-    <h1>Тестовый запуск локального сервера</h1>
-    <p>А это просто текст</p>
-    """
-    return html
+def chessmans(password = None):
+    return render_template("hometask_cards.html")
+
+@app.route("/sportsmans/")
+def sportsmans(password = None):
+    return render_template("practice.html")
 
 @app.route("/new/")
 @app.route("/newpage/")
