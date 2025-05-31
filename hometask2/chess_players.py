@@ -4,12 +4,21 @@
 # Заполните их информацией и выведите силами flask сервера, используя функцию render_template().
 # Обязательно на всех страницах сделайте меню, которое будет работать именно при запуске проекта через flask.
 
-from flask import Flask, render_templates
+from flask import Flask, render_template
 
 app = Flask(__name__)
 
 @app.route("/")
+def index(password = None):
+    return render_template("index.html")
 
+@app.route("/blog/")
+def blog(password = None):
+    return render_template("blog.html")
 
-if __name__ = "__main__":
+@app.route("/contacts/")
+def contacts(password = None):
+    return render_template("contacts.html")
+
+if __name__ == "__main__":
     app.run()
